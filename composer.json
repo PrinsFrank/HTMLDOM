@@ -1,5 +1,6 @@
 {
     "name": "prinsfrank/htmldom",
+    "description": "An HTML DOM parser",
     "type": "library",
     "license": "MIT",
     "require": {}
