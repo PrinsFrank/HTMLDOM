@@ -3,5 +3,7 @@
     "description": "An HTML DOM parser",
     "type": "library",
     "license": "MIT",
-    "require": {}
+    "require": {
+        "php": "^8.0"
+    }
 }
