@@ -3,23 +3,18 @@
 namespace PrinsFrank\HTMLDOM\Parser\Context;
 
 use PrinsFrank\HTMLDOM\DOM\Node\ElementNode;
-use PrinsFrank\HTMLDOM\DOM\Node\Node;
+use PrinsFrank\HTMLDOM\Parser\State;
 
 class InNodeTag implements Context
 {
-    public static function handle(string &$context, Node $node, string $buffer, string $char): Node
+    public static function handle(State $state, string $char): void
     {
         if (trim($char) !== '') {
-            $context = InNodeTagAttributeName::class;
+            $state->context = InNodeTagAttributeName::class;
         }
 
         if ($char === '>') {
-            $childNode = new ElementNode();
-            $node->addChild($childNode);
-            $context = InRootContent::class;
-            return $node;
+            $state->context = InRootContent::class;
         }
-
-        return $node;
     }
 }

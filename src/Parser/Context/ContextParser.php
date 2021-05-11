@@ -2,13 +2,20 @@
 
 namespace PrinsFrank\HTMLDOM\Parser\Context;
 
-use PrinsFrank\HTMLDOM\DOM\Node\Node;
+use PrinsFrank\HTMLDOM\Parser\State;
 
 class ContextParser
 {
-    public static function handle(string &$context, Node $currentNode, string $buffer, string $character): Node
+    public static function handle(State $state, string $character): void
     {
-        /** @var Context $context */
-        return $context::handle($context, $currentNode, $buffer, $character);
+        $previousContext = $state->context;
+        $state->context::handle($state, $character);
+        if ($previousContext !== $state->context) {
+            $state->buffer = '';
+
+            return;
+        }
+
+        $state->buffer .= $character;
     }
 }

@@ -2,16 +2,14 @@
 
 namespace PrinsFrank\HTMLDOM\Parser\Context;
 
-use PrinsFrank\HTMLDOM\DOM\Node\Node;
+use PrinsFrank\HTMLDOM\Parser\State;
 
 class InRootContent implements Context
 {
-    public static function handle(string &$context, Node $node, string $buffer, string $char): Node
+    public static function handle(State $state, string $char): void
     {
         if ($char === '<') {
-            $context = InNodeTagName::class;
+            $state->context = InNodeTagName::class;
         }
-
-        return $node;
     }
 }

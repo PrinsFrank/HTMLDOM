@@ -2,9 +2,17 @@
 
 namespace PrinsFrank\HTMLDOM\DOM\Node;
 
-use PrinsFrank\HTMLDOM\DOM\Node;
+use RuntimeException;
 
 class DocumentTypeNode implements Node
 {
-    public ?string $legacyString;
+    public function addChild(Node $childNode): Node
+    {
+        throw new RuntimeException();
+    }
+
+    public function setParent(Node $parent): self
+    {
+        throw new RuntimeException();
+    }
 }

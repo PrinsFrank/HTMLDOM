@@ -2,9 +2,9 @@
 
 namespace PrinsFrank\HTMLDOM\Parser\Context;
 
-use PrinsFrank\HTMLDOM\DOM\Node\Node;
+use PrinsFrank\HTMLDOM\Parser\State;
 
 interface Context
 {
-    public static function handle(string &$context, Node $node, string $buffer, string $char): Node;
+    public static function handle(State $state, string $char): void;
 }
