@@ -8,11 +8,16 @@ class DocumentTypeNode implements Node
 {
     public function addChild(Node $childNode): Node
     {
-        throw new RuntimeException();
+        throw new RuntimeException('A document type is not allowed to have a child node');
     }
 
     public function setParent(Node $parent): self
     {
-        throw new RuntimeException();
+        throw new RuntimeException('A document type can not have a parent other than the DOM');
+    }
+
+    public function setAttribute(string $name, ?string $value): Node
+    {
+        throw new RuntimeException('A document type can not have attributes');
     }
 }

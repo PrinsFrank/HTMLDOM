@@ -7,4 +7,6 @@ interface Node
     public function addChild(Node $childNode): self;
 
     public function setParent(Node $parent): self;
+
+    public function setAttribute(string $name, ?string $value): self;
 }

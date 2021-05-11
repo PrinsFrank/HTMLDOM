@@ -11,9 +11,8 @@ class InDocumentDeclaration implements Context
     {
         if ($char === '>') {
             $childNode = new DocumentTypeNode();
-            echo 'adding childnode ' . $state->buffer . PHP_EOL;
             $state->currentNode->addChild($childNode);
-            $state->context = InRootContent::class;
+            $state->context = InNodeTagClose::class;
         }
     }
 }

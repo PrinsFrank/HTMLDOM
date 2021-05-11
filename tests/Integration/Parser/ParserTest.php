@@ -24,7 +24,7 @@ class ParserTest extends TestCase
                 ->setDocumentElementNode(
                     (new ElementNode())
                         ->setName('html')
-//                        ->setAttribute('foo', 'bar')
+                        ->setAttribute('foo', 'bar')
                 ),
             HTMLDOMParser::parse('<!DOCTYPE html><html foo="bar"></html>')
         );

@@ -12,8 +12,6 @@ class ContextParser
         $state->context::handle($state, $character);
         if ($previousContext !== $state->context) {
             $state->buffer = '';
-
-            return;
         }
 
         $state->buffer .= $character;

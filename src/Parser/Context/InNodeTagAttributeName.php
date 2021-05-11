@@ -8,6 +8,7 @@ class InNodeTagAttributeName implements Context
 {
     public static function handle(State $state, string $char): void
     {
+        $state->propertyNameCache = $state->buffer;
         if (trim($char) === '') {
             $state->context = InNodeTag::class;
         }

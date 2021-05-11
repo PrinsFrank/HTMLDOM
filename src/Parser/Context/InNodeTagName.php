@@ -9,13 +9,13 @@ class InNodeTagName implements Context
 {
     public static function handle(State $state, string $char): void
     {
-        if ($char === '!') {
-            $state->context = InDocumentDeclaration::class;
+        if ($char === '>') {
+            $state->context = InNodeTagClose::class;
+            return;
         }
 
         if (trim($char) === '') {
             $childNode = (new ElementNode())->setName($state->buffer);
-            echo 'adding childnode ' . $state->buffer . PHP_EOL;
             $state->currentNode->addChild($childNode);
             $state->context = InNodeTag::class;
             $state->currentNode = $childNode;

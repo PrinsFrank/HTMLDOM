@@ -49,6 +49,11 @@ class DOM implements Node
 
     public function setParent(Node $parent): self
     {
-        throw new RuntimeException();
+        throw new RuntimeException('A DOM cannot have a parent as it is the main element in a HTML document.');
+    }
+
+    public function setAttribute(string $name, ?string $value): Node
+    {
+        throw new RuntimeException('A DOM cannot have attributes');
     }
 }
