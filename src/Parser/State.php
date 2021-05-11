@@ -11,10 +11,6 @@ class State
     /** @var Context */
     public string $context = InRootContent::class;
     public string $buffer  = '';
-    public Node   $currentNode;
 
-    public function __construct(Node $currentNode)
-    {
-        $this->currentNode = $currentNode;
-    }
+    public function __construct(public Node $currentNode) {}
 }

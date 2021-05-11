@@ -2,7 +2,6 @@
 
 namespace PrinsFrank\HTMLDOM\Parser\Context;
 
-use PrinsFrank\HTMLDOM\DOM\Node\ElementNode;
 use PrinsFrank\HTMLDOM\Parser\State;
 
 class InNodeTag implements Context
