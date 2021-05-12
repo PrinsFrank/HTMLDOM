@@ -40,4 +40,9 @@ class ElementNode implements Node
 
         return $this;
     }
+
+    public function getParent(): Node
+    {
+        return $this->parent;
+    }
 }

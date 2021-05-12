@@ -9,16 +9,18 @@ class InNodeTagName implements Context
 {
     public static function handle(State $state, string $char): void
     {
+        if ($char === '>' || trim($char) === '') {
+            $childNode = (new ElementNode())->setParent($state->currentNode)->setName($state->buffer);
+            $state->currentNode->addChild($childNode);
+            $state->currentNode = $childNode;
+        }
+
         if ($char === '>') {
             $state->context = InNodeTagClose::class;
-            return;
         }
 
         if (trim($char) === '') {
-            $childNode = (new ElementNode())->setName($state->buffer);
-            $state->currentNode->addChild($childNode);
             $state->context = InNodeTag::class;
-            $state->currentNode = $childNode;
         }
     }
 }
