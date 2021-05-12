@@ -25,4 +25,9 @@ class DocumentTypeNode implements Node
     {
         throw new RuntimeException('A document type can not have a parent other than the DOM');
     }
+
+    public function getName(): string
+    {
+        return '!DOCTYPE';
+    }
 }

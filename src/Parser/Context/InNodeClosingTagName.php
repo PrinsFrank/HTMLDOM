@@ -9,6 +9,7 @@ class InNodeClosingTagName implements Context
 {
     public static function handle(State $state, string $char): void
     {
+        $state->previousBuffer = $state->buffer;
         if ($char === '>') {
             $state->context = InNodeClosingTagClose::class;
         }

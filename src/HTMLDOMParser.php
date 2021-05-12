@@ -12,7 +12,7 @@ class HTMLDOMParser
     {
         $DOM   = new DOM();
         $state = new State($DOM);
-        foreach (mb_str_split($string) as $char) {
+        foreach (mb_str_split($string . ' ') as $char) {
             ContextParser::handle($state, $char);
             echo  'Character: "' . $char .'", Now in context "' . $state->context . '" with buffer "' . $state->buffer . '"' . PHP_EOL;
         }

@@ -113,4 +113,34 @@ class ParserTest extends TestCase
             HTMLDOMParser::parse('<!DOCTYPE html><html foo="bar"><div><ul><li></li><li></li></ul></div><div></div></html>')
         );
     }
+    /**
+     * @covers ::parse
+     */
+    public function testTraversesNonClosedElementsToCloseCorrectElement(): void
+    {
+        static::assertEquals(
+            ($dom = new DOM())
+                ->setDocumentElementNode(
+                    ($htmlElem = new ElementNode())
+                        ->setParent($dom)
+                        ->setName('html')
+                        ->addChild(
+                            ($div = new ElementNode())
+                                ->setParent($htmlElem)
+                                ->setName('div')
+                                ->addChild(
+                                    (new ElementNode())
+                                        ->setParent($div)
+                                        ->setName('ul')
+                                )
+                        )
+                        ->addChild(
+                            (new ElementNode())
+                                ->setParent($htmlElem)
+                                ->setName('span')
+                        )
+                ),
+            HTMLDOMParser::parse('<html><div><ul></div><span></span></html>')
+        );
+    }
 }

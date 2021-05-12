@@ -11,4 +11,6 @@ interface Node
     public function setAttribute(string $name, ?string $value): self;
 
     public function getParent(): Node;
+
+    public function getName(): string;
 }
