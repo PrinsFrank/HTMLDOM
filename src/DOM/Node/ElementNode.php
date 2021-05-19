@@ -12,7 +12,7 @@ class ElementNode implements Node
     private array  $children;
     private Node $parent;
 
-    public function getName(): string
+    public function getType(): string
     {
         return $this->name ?? '';
     }
@@ -29,6 +29,11 @@ class ElementNode implements Node
         $this->attributes[$name] = $value;
 
         return $this;
+    }
+
+    public function getAttributes(): array
+    {
+        return $this->attributes;
     }
 
     public function addChild(Node $childNode): self

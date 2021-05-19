@@ -12,5 +12,7 @@ interface Node
 
     public function getParent(): Node;
 
-    public function getName(): string;
+    public function getType(): string;
+
+    public function getAttributes(): array;
 }

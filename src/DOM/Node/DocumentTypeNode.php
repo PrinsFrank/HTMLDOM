@@ -21,12 +21,17 @@ class DocumentTypeNode implements Node
         throw new RuntimeException('A document type can not have attributes');
     }
 
+    public function getAttributes(): array
+    {
+        throw new RuntimeException('A document type can not have attributes');
+    }
+
     public function getParent(): Node
     {
         throw new RuntimeException('A document type can not have a parent other than the DOM');
     }
 
-    public function getName(): string
+    public function getType(): string
     {
         return '!DOCTYPE';
     }

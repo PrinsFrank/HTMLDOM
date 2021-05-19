@@ -62,7 +62,12 @@ class DOM implements Node
         throw new RuntimeException('A DOM cannot have attributes');
     }
 
-    public function getName(): string
+    public function getAttributes(): array
+    {
+        throw new RuntimeException('A DOM cannot have attributes');
+    }
+
+    public function getType(): string
     {
         return 'DOM';
     }

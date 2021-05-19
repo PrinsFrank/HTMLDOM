@@ -11,7 +11,7 @@ class ElementResolver
     {
         $parent = $state->currentNode->getParent();
         if ($parent instanceof DOM
-            || $state->currentNode->getName() === $state->previousBuffer) {
+            || $state->currentNode->getType() === $state->previousBuffer) {
             $state->previousBuffer = '';
             return $parent;
         }
